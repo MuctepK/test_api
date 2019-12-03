@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from webapp.views import api_example, add_view, subtract_view, multiply_view, divide_view
+from webapp.views import api_example, add_view, subtract_view, multiply_view, divide_view, index_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -23,5 +23,6 @@ urlpatterns = [
     path('add/', add_view, name='add_api'),
     path('subtract/', subtract_view, name='subtract_api'),
     path('multiply/', multiply_view, name='multiply_view'),
-    path('divide/', divide_view, name='divide_view')
+    path('divide/', divide_view, name='divide_view'),
+    path('', index_view, name='index_view')
 ]

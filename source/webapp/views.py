@@ -36,15 +36,19 @@ def get_json_response(status, answer):
 
 
 def validate_and_solve_nums(request_data, operation):
+    num1, num2 = (request_data.get("A")), (request_data.get("B"))
     try:
-        num1, num2 = float(request_data.get("A")), float(request_data.get("B"))
+        num1, num2 = float(num1), float(num2)
     except ValueError:
-        return get_json_response(400, "Variables 'A' or 'B' are not numbers")
+        if num1 and num2:
+            return get_json_response(400, "Variable 'A' or 'B' is not a number")
+        else:
+            return get_json_response(400, "Variable 'A' or 'B' is not provided")
     except TypeError:
         return get_json_response(400, "Variables 'A' or 'B' are not provided")
     else:
         try:
-            answer = CALCULATOR[operation](num1,num2)
+            answer = CALCULATOR[operation](num1, num2)
         except ArithmeticError as e:
             return get_json_response(400, str(e))
         return get_json_response(200, answer)
@@ -98,4 +102,4 @@ def divide_view(request, *args, **kwargs):
 
 
 def index_view(request, *args, **kwargs):
-    return render('index.html')
+    return render(request, template_name='index.html')

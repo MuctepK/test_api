@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block content %}
+    <div class="container">
 
-</body>
-</html>
+    </div>
+{% endblock %}
+{% block scripts %}
+    <script src="{% static "js/client.js" %}" type="application/javascript"></script>
+{% endblock %}
