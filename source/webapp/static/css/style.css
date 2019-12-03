@@ -1,0 +1,19 @@
+.container{
+    max-width: 800px;
+    margin:0 auto;
+    width:80%;
+    margin-top:100px;
+}
+.my-input{
+    max-width: 300px;
+    margin:20px auto;
+}
+.my-btns{
+
+    max-width: 450px;
+    margin:50px auto;
+}
+.answer{
+    font-size:50px;
+    margin: 0 auto;
+}
