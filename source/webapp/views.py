@@ -55,47 +55,30 @@ def validate_and_solve_nums(request_data, operation):
 
 @csrf_exempt
 def add_view(request, *args, **kwargs):
-    if request.method != 'POST':
-        return get_json_response(405, "Method not allowed")
-    if request.body:
-        request_data = json.loads(request.body)
-        answer = validate_and_solve_nums(request_data, '+')
-        return answer
-    else:
-        return get_json_response(400, "Data not provided")
+    return calculator_view(request, '+')
 
 
 @csrf_exempt
 def subtract_view(request, *args, **kwargs):
-    if request.method != 'POST':
-        return get_json_response(405, "Method not allowed")
-    if request.body:
-        request_data = json.loads(request.body)
-        answer = validate_and_solve_nums(request_data, '-')
-        return answer
-    else:
-        return get_json_response(400, "Data not provided")
+    return calculator_view(request, '-')
 
 
 @csrf_exempt
 def multiply_view(request, *args, **kwargs):
-    if request.method != 'POST':
-        return get_json_response(405, "Method not allowed")
-    if request.body:
-        request_data = json.loads(request.body)
-        answer = validate_and_solve_nums(request_data, '*')
-        return answer
-    else:
-        return get_json_response(400, "Data not provided")
+    return calculator_view(request, '*')
 
 
 @csrf_exempt
 def divide_view(request, *args, **kwargs):
+    return calculator_view(request, '/')
+
+
+def calculator_view(request, operation):
     if request.method != 'POST':
         return get_json_response(405, "Method not allowed")
     if request.body:
         request_data = json.loads(request.body)
-        answer = validate_and_solve_nums(request_data, '/')
+        answer = validate_and_solve_nums(request_data, operation)
         return answer
     else:
         return get_json_response(400, "Data not provided")

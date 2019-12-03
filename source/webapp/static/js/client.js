@@ -9,7 +9,7 @@ function getAnswer(){
 }
 function parseSuccess(response){
     let divContainer = $('.container');
-    let answer = getAnswer()
+    let answer = getAnswer();
     answer.text(response.answer);
     answer.attr('id', 'answer');
     answer.css('color', 'green');
