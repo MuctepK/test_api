@@ -15,7 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from webapp.views import api_example, add_view, subtract_view, multiply_view, divide_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('echo/', api_example, name='echo_api'),
+    path('add/', add_view, name='add_api'),
+    path('subtract/', subtract_view, name='subtract_api'),
+    path('multiply/', multiply_view, name='multiply_view'),
+    path('divide/', divide_view, name='divide_view')
 ]
